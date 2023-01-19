@@ -77,3 +77,7 @@
 - メイン機能実装：〜2023/2/19
 - MVPリリース：2023/2/22
 - 本リリース：2023/3/7
+
+## 画面遷移図
+
+Figma：[https://www.figma.com/file/Np5swHiNeIlMQpZyFcAUyc/Free-Theme-%2F-画面遷移図?node-id=0%3A1&t=bBelIQSVuPqR8tWs-1](https://www.figma.com/file/Np5swHiNeIlMQpZyFcAUyc/Free-Theme-%2F-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=bBelIQSVuPqR8tWs-1)
