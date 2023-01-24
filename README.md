@@ -69,11 +69,15 @@
 ## ■スケジュール
 
 - 企画〜技術調査：2023/1/15〜2023/1/18
-- README〜ER図：〜2023/1/22
-- メイン機能実装：〜2023/2/19
-- MVPリリース：2023/2/22
-- 本リリース：2023/3/7
+- README〜ER図：〜2023/1/28
+- メイン機能実装：〜2023/2/26
+- MVPリリース：2023/3/4
+- 本リリース：2023/3/20
 
 ## ■画面遷移図
 
 Figma：[https://www.figma.com/file/Np5swHiNeIlMQpZyFcAUyc/Free-Theme-%2F-画面遷移図?node-id=0%3A1&t=bBelIQSVuPqR8tWs-1](https://www.figma.com/file/Np5swHiNeIlMQpZyFcAUyc/Free-Theme-%2F-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=bBelIQSVuPqR8tWs-1)
+
+## ■ER図
+
+[https://drive.google.com/file/d/1hrMiTyNCyAM8U-B0lh5isAU510FQ66SN/view?usp=sharing](https://drive.google.com/file/d/1hrMiTyNCyAM8U-B0lh5isAU510FQ66SN/view?usp=sharing)
