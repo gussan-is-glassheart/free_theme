@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: free_theme_production
-  username: free_theme
+  database: cldkbnd19003z9ro47rk1bceu
+  username: cldkbnd18003x9ro44ng77h8d
   password: <%= ENV["FREE_THEME_DATABASE_PASSWORD"] %>
