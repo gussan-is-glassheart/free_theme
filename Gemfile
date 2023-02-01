@@ -48,9 +48,37 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# 日本語化
+gem 'rails-i18n'
+gem 'enum_help'
+
+# slim関連
+gem 'slim-rails'
+gem 'html2slim'
+
+# モデルのスキーマ情報の表示
+gem 'annotate'
+
+# ログイン機能
+gem 'sorcery'
+
+# AWS S3による画像アップローダー用
+gem 'carrierwave'
+# S3実装時にコメントを解除
+#gem 'fog'
+
+# タスク関連
+gem 'whenever'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Rspec関連
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -62,5 +90,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Lintチェック
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
