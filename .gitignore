@@ -29,3 +29,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/node_modules
+
+/public/.DS_Store
+
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
