@@ -3,6 +3,7 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    edit: '変更'
   users:
     new:
       title: '新規登録'
@@ -18,3 +19,8 @@ ja:
       error_message: 'メールアドレスまたはパスワードが正しくありません'
     destroy:
       success: 'ログアウトしました'
+  profiles:
+    show:
+      title: 'プロフィール'
+    edit:
+      title: 'プロフィール変更'
