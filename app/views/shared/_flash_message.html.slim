@@ -1,0 +1,7 @@
+- flash.each do |message_type, message|
+  - if flash[:success]
+    .alert.alert-success
+      = message
+  - if flash[:error]
+    .alert.alert-error
+      = message

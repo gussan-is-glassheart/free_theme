@@ -1,27 +1,4 @@
 - content_for(:title, t('.title'))
-div
-  div
-    = form_with model: @user, local: true do |f|
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('name')
-        = f.text_field :name
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('email')
-        = f.text_field :email
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('password')
-        = f.password_field :password
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('password_confirmation')
-        = f.password_field :password_confirmation
-      .form-control
-        button
-          = t('defaults.register')
+h1
+  = t('.title')
+= render 'form', user: @user

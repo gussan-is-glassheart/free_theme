@@ -1,0 +1,20 @@
+div
+  div
+    = form_with url: login_path, local: true do |f|
+      .form-control
+        label.label
+          span.label-text
+            = User.human_attribute_name('email')
+        = f.text_field :email
+      .form-control
+        label.label
+          span.label-text
+            = User.human_attribute_name('password')
+        = f.password_field :password
+      .form-control
+        = f.submit t('defaults.login')
+        label.label
+          ul
+            li
+              = link_to signup_path do
+                | 新規登録はこちら

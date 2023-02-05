@@ -1,20 +1,4 @@
 - content_for(:title, t('.title'))
-div
-  div
-    h1
-      = t('.title')
-    = form_with url: login_path, local: true do |f|
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('email')
-        = f.text_field :email
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('password')
-        = f.password_field :password
-        label.label
-          ul
-            li
-              = link_to signup_path
+h1
+  = t('.title')
+= render 'form'
