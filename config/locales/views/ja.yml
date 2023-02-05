@@ -4,6 +4,7 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     edit: '変更'
+    invalid_access: '不正なアクセスです'
   users:
     new:
       title: '新規登録'
