@@ -1,0 +1,10 @@
+div
+  ul
+    li
+      = link_to 'プロフィール', profile_path
+    li
+      = link_to 'テーマ選択', '#'
+    li
+      = link_to 'テーマボード', '#'
+    li
+      = button_to t('defaults.logout'), logout_path, method: :delete

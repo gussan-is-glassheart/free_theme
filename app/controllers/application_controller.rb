@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authenticated
-    redirect_to login_path, error: t('defaulets.please_login_first')
+    redirect_to login_path, error: t('defaults.please_login')
   end
 
   def require_not_logged_in

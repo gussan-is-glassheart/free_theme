@@ -5,6 +5,7 @@ ja:
     logout: 'ログアウト'
     edit: '変更'
     invalid_access: '不正なアクセスです'
+    please_login: 'ログインしてください'
   users:
     new:
       title: '新規登録'
