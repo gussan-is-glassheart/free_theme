@@ -1,0 +1,9 @@
+header
+  div
+    div
+      = link_to 'Free Theme', '#'
+    div
+      - if logged_in?
+        = render 'shared/after_login_header'
+      - else
+        = link_to 'ログイン', login_path

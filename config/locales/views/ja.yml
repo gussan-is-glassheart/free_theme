@@ -1,0 +1,28 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    edit: '変更'
+    invalid_access: '不正なアクセスです'
+    please_login: 'ログインしてください'
+  users:
+    new:
+      title: '新規登録'
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+      error_message: 'メールアドレスまたはパスワードが正しくありません'
+    destroy:
+      success: 'ログアウトしました'
+  profiles:
+    show:
+      title: 'プロフィール'
+    edit:
+      title: 'プロフィール変更'

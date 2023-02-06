@@ -1,0 +1,22 @@
+- content_for(:title, t('.title'))
+div
+  div
+    div
+      h1
+        = t('.title')
+      table
+        tr
+          th
+            = User.human_attribute_name(:name)
+          td
+            = current_user.name
+        tr
+          th
+            = User.human_attribute_name(:email)
+          td
+            = current_user.email
+      ul
+        li
+          = link_to t('defaults.edit'), edit_profile_path
+        li
+          | 削除
