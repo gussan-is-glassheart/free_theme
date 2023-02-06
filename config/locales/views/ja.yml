@@ -6,6 +6,13 @@ ja:
     edit: '変更'
     invalid_access: '不正なアクセスです'
     please_login: 'ログインしてください'
+  static_pages:
+    top:
+      title: 'トップページ'
+    terms:
+      title: '利用規約'
+    privacy_policy:
+      title: 'プライバシーポリシー'
   users:
     new:
       title: '新規登録'

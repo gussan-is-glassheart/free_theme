@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+# 静的ページ
+  root 'static_pages#top'
+  get 'terms', to: 'static_pages#terms'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
+
 # ユーザー登録・ログイン・プロフィール
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
