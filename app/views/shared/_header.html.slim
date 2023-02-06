@@ -1,9 +1,13 @@
 header
   div
     div
-      = link_to 'Free Theme', '#'
+      = link_to 'Free Theme', root_path
     div
-      - if logged_in?
-        = render 'shared/after_login_header'
-      - else
-        = link_to 'ログイン', login_path
+      ul
+        - if logged_in?
+          = render 'shared/after_login_header'
+        - else
+          li
+            = link_to '新規登録', signup_path
+          li
+            = link_to 'ログイン', login_path
