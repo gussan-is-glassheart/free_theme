@@ -5,10 +5,12 @@ class ThemeBoardsController < ApplicationController
 
   def new
     theme_board = ThemeBoard.new
+    @categories = Category.all
   end
 
   def show
     @theme_board = ThemeBoard.find(params[:id])
+    @theme = @theme_board.themeable
   end
 
   def create

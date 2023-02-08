@@ -1,2 +1,14 @@
-h1 ThemeBoards#new
-p Find me in app/views/theme_boards/new.html.slim
+- content_for(:title, t('.title'))
+h1
+  = t('.title')
+div
+  h3
+    | ランダムでテーマを作成
+  = link_to 'ランダムでテーマを作成', '#'
+div
+  h3
+    | テーマを選択して作成
+  ul
+    - @categories.each do |category|
+        li
+          = link_to category.name, '#'
