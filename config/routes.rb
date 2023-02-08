@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+# テーマボード
+  resources :theme_boards, except: %i[edit]
+
 # 静的ページ
   root 'static_pages#top'
   get 'terms', to: 'static_pages#terms'

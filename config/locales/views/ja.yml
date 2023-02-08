@@ -33,3 +33,15 @@ ja:
       title: 'プロフィール'
     edit:
       title: 'プロフィール変更'
+  theme_boards:
+    index:
+      title: 'テーマボード'
+    new:
+      title: 'テーマ選択'
+    create:
+      success: 'テーマを作成しました'
+    update:
+      success: 'テーマのお題を達成しました！'
+      fail: 'テーマのお題を達成できませんでした'
+    destroy:
+      success: 'テーマを削除しました'
