@@ -1,0 +1,14 @@
+- content_for(:title, t('.title'))
+h1
+  = t('.title')
+div
+  h3
+    | ランダムでテーマを作成
+  = link_to 'ランダムでテーマを作成', '#'
+div
+  h3
+    | テーマを選択して作成
+  ul
+    - @categories.each do |category|
+        li
+          = button_to category.name, theme_boards_path(category_id: category.id), method: :post
