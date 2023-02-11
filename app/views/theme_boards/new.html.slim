@@ -11,4 +11,4 @@ div
   ul
     - @categories.each do |category|
         li
-          = link_to category.name, '#'
+          = button_to category.name, theme_boards_path(category_id: category.id), method: :post

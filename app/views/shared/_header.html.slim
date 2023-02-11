@@ -8,6 +8,6 @@ header
           = render 'shared/after_login_header'
         - else
           li
-            = link_to '新規登録', signup_path
+            = link_to t('users.new.title'), signup_path
           li
-            = link_to 'ログイン', login_path
+            = link_to t('defaults.login'), login_path

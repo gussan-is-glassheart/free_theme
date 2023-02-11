@@ -1,8 +1,8 @@
     li
-      = link_to 'プロフィール', profile_path
+      = link_to t('profiles.show.title'), profile_path
     li
-      = link_to 'テーマ選択', '#'
+      = link_to t('theme_boards.new.title'), new_theme_board_path
     li
-      = link_to 'テーマボード', '#'
+      = link_to t('theme_boards.index.title'), theme_boards_path
     li
       = link_to t('defaults.logout'), logout_path, data: { turbo_method: :delete }

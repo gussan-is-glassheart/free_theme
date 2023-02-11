@@ -14,9 +14,10 @@ class ThemeBoardsController < ApplicationController
   end
 
   def create
-    theme_board = current_user.theme_boards.new(theme_board_params)
-    theme_board.save!
-    redirect_to theme_board_path(theme_board), success: t('.success')
+    board = ThemeBoard.new
+    theme = board.set_photo_theme(id: params[:category_id])
+    theme_board = theme.theme_boards.create!(user_id: current_user.id)
+    redirect_to theme_board, success: t('.success')
   end
 
   def update
@@ -28,9 +29,4 @@ class ThemeBoardsController < ApplicationController
     redirect_to theme_boards_path, success: t('.success')
   end
 
-  private
-
-  def theme_board_params
-    params.require(:theme_board).permit(:themeable_id, :themeable_type)
-  end
 end
