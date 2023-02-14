@@ -36,10 +36,15 @@ ja:
   theme_boards:
     index:
       title: 'テーマボード'
+      no_result_unachieved: '未達成のテーマはありません'
+      no_result_achievement: '達成済みのテーマはありません'
     new:
       title: 'テーマ選択'
     create:
       success: 'テーマを作成しました'
+    show:
+      judgement: '判定'
+      delete: 'テーマをリタイアする'
     update:
       success: 'テーマのお題を達成しました！'
       fail: 'テーマのお題を達成できませんでした'

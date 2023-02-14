@@ -1,3 +1,11 @@
 - content_for(:title, t('.title'))
 h1
   = t('.title')
+
+div
+  div
+    - if @theme_boards.present?
+      = render @theme_boards
+    - else
+      p
+        = t('.no_result_unachieved')

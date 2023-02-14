@@ -1,6 +1,6 @@
 class ThemeBoardsController < ApplicationController
   def index
-    @theme_boards = ThemeBoard.all
+    @theme_boards = ThemeBoard.all.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -14,9 +14,7 @@ class ThemeBoardsController < ApplicationController
   end
 
   def create
-    board = ThemeBoard.new
-    theme = board.set_photo_theme(id: params[:category_id])
-    theme_board = theme.theme_boards.create!(user_id: current_user.id)
+    theme_board = ThemeBoard.set_photo_theme(params[:category_id], current_user.id)
     redirect_to theme_board, success: t('.success')
   end
 

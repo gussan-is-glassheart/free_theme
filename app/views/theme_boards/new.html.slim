@@ -11,4 +11,4 @@ div
   ul
     - @categories.each do |category|
         li
-          = button_to category.name, theme_boards_path(category_id: category.id), method: :post
+          = button_to category.name, theme_boards_path, { method: :post, params: {category_id: category.id} }
