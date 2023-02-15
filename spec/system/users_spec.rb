@@ -14,7 +14,7 @@ RSpec.describe "Users", type: :system do
           fill_in 'user[password_confirmation]', with: 'password'
           click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('users.create.success')
-          expect(current_path).to eq profile_path
+          expect(current_path).to eq theme_boards_path
         end
       end
 

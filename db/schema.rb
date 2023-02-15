@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_07_025550) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_020453) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,10 +20,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_025550) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "photo_theme_items", force: :cascade do |t|
+    t.bigint "photo_theme_id", null: false
+    t.bigint "theme_item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_theme_id"], name: "index_photo_theme_items_on_photo_theme_id"
+    t.index ["theme_item_id"], name: "index_photo_theme_items_on_theme_item_id"
+  end
+
   create_table "photo_themes", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.string "target", null: false
-    t.string "subject", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_photo_themes_on_category_id"
@@ -40,6 +48,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_025550) do
     t.index ["user_id"], name: "index_theme_boards_on_user_id"
   end
 
+  create_table "theme_items", force: :cascade do |t|
+    t.string "subject", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -50,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_025550) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "photo_theme_items", "photo_themes"
+  add_foreign_key "photo_theme_items", "theme_items"
   add_foreign_key "photo_themes", "categories"
   add_foreign_key "theme_boards", "users"
 end
