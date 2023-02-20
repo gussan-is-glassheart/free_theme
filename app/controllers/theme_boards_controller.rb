@@ -19,12 +19,26 @@ class ThemeBoardsController < ApplicationController
   end
 
   def update
+    theme_board = ThemeBoard.find(params[:id])
+    if PhotoAchievement.create(theme_board_id: theme_board.id, content: theme_board_params[:content])
+      theme_board.update(complete: true)
+      redirect_to theme_board, success: '保存成功'
+    else
+      flash.now[:error] = '保存失敗'
+      render theme_board, status: :unprocessable_entity
+    end
   end
 
   def destroy
     theme_board = ThemeBoard.find(params[:id])
     theme_board.destroy!
     redirect_to theme_boards_path, success: t('.success')
+  end
+
+  private
+
+  def theme_board_params
+    params.require(:theme_board).permit(:content)
   end
 
 end

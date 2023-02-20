@@ -2,12 +2,15 @@
 h1
   = "#{@theme.target}を撮影しよう"
 
+- if @theme_board.photo_achievement.present?
+  = image_tag "#{@theme_board.photo_achievement.content}", size: "300x200"
+
 div
   div
   = form_with model: @theme_board, local: true do |f|
     .form_control
       label.label
-      = f.file_field :photo_theme_img
+      = f.file_field :content
     .form_control
       = f.submit t('.judgement')
       label.label
