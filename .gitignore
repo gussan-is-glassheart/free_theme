@@ -33,6 +33,9 @@
 /node_modules
 
 /public/.DS_Store
+/public/uploads
+
+/.env
 
 .DS_Store
 app/.DS_Store

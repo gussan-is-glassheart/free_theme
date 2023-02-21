@@ -65,7 +65,10 @@ gem 'sorcery'
 # AWS S3による画像アップローダー用
 gem 'carrierwave'
 # S3実装時にコメントを解除
-#gem 'fog'
+gem 'fog-aws'
+
+# 環境変数の管理
+gem 'dotenv-rails'
 
 # タスク関連
 gem 'whenever'
