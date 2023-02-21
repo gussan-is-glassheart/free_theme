@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_20_001554) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_21_070215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_001554) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "photo_achievements", force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_001554) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_photo_themes_on_category_id"
+    t.index ["target"], name: "index_photo_themes_on_target", unique: true
   end
 
   create_table "theme_boards", force: :cascade do |t|
@@ -60,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_001554) do
     t.string "subject", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject"], name: "index_theme_items_on_subject", unique: true
   end
 
   create_table "users", force: :cascade do |t|
