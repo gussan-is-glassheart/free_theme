@@ -8,6 +8,7 @@ h1
 div
   div
   = form_with model: @theme_board, local: true do |f|
+    = render 'shared/error_messages', object: f.object
     .form_control
       label.label
       = f.file_field :content

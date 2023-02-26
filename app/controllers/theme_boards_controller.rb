@@ -20,7 +20,8 @@ class ThemeBoardsController < ApplicationController
 
   def update
     theme_board = ThemeBoard.find(params[:id])
-    if PhotoAchievement.create(theme_board_id: theme_board.id, content: theme_board_params[:content])
+    if ThemeBoard.image_judgement(theme_board, theme_board_params[:content])
+      PhotoAchievement.create(theme_board_id: theme_board.id, content: theme_board_params[:content])
       theme_board.update(complete: true)
       redirect_to theme_board, success: '保存成功'
     else

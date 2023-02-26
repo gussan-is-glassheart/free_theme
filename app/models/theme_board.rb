@@ -9,4 +9,13 @@ class ThemeBoard < ApplicationRecord
     theme = id.present? ? PhotoTheme.where(category_id: id).sample : PhotoTheme.all.sample
     theme.theme_boards.create!(user_id: user_id)
   end
+
+  def self.image_judgement(theme_board, image)
+    # 該当テーマの答えを配列で取得
+    items = theme_board.themeable.theme_items.pluck(:subject)
+    # アップロードした画像のラベルを配列で取得(API)
+    labels = Vision.get_image_data(image.path)
+    # labelsの中にitemsの要素がすべて含まれているか？
+    items.to_set.subset?(labels.to_set) ? true : false
+  end
 end
