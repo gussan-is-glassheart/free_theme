@@ -86,6 +86,9 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'capybara'
   gem 'webdrivers'
+
+  # デバッグ
+  gem 'pry-rails'
 end
 
 group :development do
