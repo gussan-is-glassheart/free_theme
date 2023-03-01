@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :photo_theme_item do
-    photo_theme { nil }
-    theme_item { nil }
+    photo_theme
+    theme_item
   end
 end

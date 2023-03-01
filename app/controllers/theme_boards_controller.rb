@@ -23,9 +23,9 @@ class ThemeBoardsController < ApplicationController
     if params[:theme_board].present? && ThemeBoard.image_judgement(theme_board, theme_board_params[:content])
       PhotoAchievement.create(theme_board_id: theme_board.id, content: theme_board_params[:content])
       theme_board.update(complete: true)
-      redirect_to theme_board, success: '保存成功'
+      redirect_to theme_board, success: t('.success')
     else
-      redirect_to theme_board, error: '保存失敗'
+      redirect_to theme_board, error: t('.fail')
     end
   end
 
