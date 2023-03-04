@@ -8,12 +8,13 @@ h1
 div
   div
   = form_with model: @theme_board, local: true do |f|
+    = render 'shared/error_messages', object: f.object
     .form_control
       label.label
       = f.file_field :content
     .form_control
-      = f.submit t('.judgement')
+      = f.submit t('defaults.judgement')
       label.label
         ul
           li
-            = link_to t('.delete'), theme_board_path, data: { turbo_method: :delete }
+            = link_to t('defaults.delete'), theme_board_path, data: { turbo_method: :delete }

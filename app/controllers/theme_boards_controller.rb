@@ -20,12 +20,12 @@ class ThemeBoardsController < ApplicationController
 
   def update
     theme_board = ThemeBoard.find(params[:id])
-    if PhotoAchievement.create(theme_board_id: theme_board.id, content: theme_board_params[:content])
+    if params[:theme_board].present? && ThemeBoard.image_judgement(theme_board, theme_board_params[:content])
+      PhotoAchievement.create(theme_board_id: theme_board.id, content: theme_board_params[:content])
       theme_board.update(complete: true)
-      redirect_to theme_board, success: '保存成功'
+      redirect_to theme_board, success: t('.success')
     else
-      flash.now[:error] = '保存失敗'
-      render theme_board, status: :unprocessable_entity
+      redirect_to theme_board, error: t('.fail')
     end
   end
 

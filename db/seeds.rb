@@ -14,9 +14,9 @@ theme_items = [
   {id: 2, subject: "Bridge"},
   {id: 3, subject: "Dog"},
   {id: 4, subject: "Bird"},
-  {id: 5, subject: "Rock Dove"},
+  {id: 5, subject: "Rock dove"},
   {id: 6, subject: "Temple"},
-  {id: 7, subject: "Japanese Architecture"},
+  {id: 7, subject: "Japanese architecture"},
   {id: 8, subject: "Shrine"}
 ]
 

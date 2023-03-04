@@ -64,8 +64,12 @@ gem 'sorcery'
 
 # AWS S3による画像アップローダー用
 gem 'carrierwave'
+
 # S3実装時にコメントを解除
 gem 'fog-aws'
+
+# Google Vision API
+gem 'google-cloud-vision'
 
 # 環境変数の管理
 gem 'dotenv-rails'
@@ -82,6 +86,9 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'capybara'
   gem 'webdrivers'
+
+  # デバッグ
+  gem 'pry-rails'
 end
 
 group :development do

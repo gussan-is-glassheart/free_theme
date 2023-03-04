@@ -6,6 +6,8 @@ ja:
     edit: '変更'
     invalid_access: '不正なアクセスです'
     please_login: 'ログインしてください'
+    judgement: '判定'
+    delete: 'テーマをリタイアする'
   static_pages:
     top:
       title: 'トップページ'
@@ -43,10 +45,8 @@ ja:
     create:
       success: 'テーマを作成しました'
     show:
-      judgement: '判定'
-      delete: 'テーマをリタイアする'
     update:
-      success: 'テーマのお題を達成しました！'
-      fail: 'テーマのお題を達成できませんでした'
+      success: 'お題を達成しました！'
+      fail: 'お題を達成できませんでした'
     destroy:
       success: 'テーマを削除しました'
