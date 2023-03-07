@@ -19,4 +19,4 @@ div
         li
           = link_to t('defaults.edit'), edit_profile_path
         li
-          | 削除
+          = link_to t('defaults.user_delete'),  profile_path, data: { turbo_method: :delete, turbo_confirm: t('defaults.user_delete_confirmation') }

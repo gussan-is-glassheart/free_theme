@@ -4,10 +4,12 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     edit: '変更'
+    user_delete: '削除'
+    user_delete_confirmation: 'アカウントを削除すると、すべてのデータが削除されます。削除しますか？'
     invalid_access: '不正なアクセスです'
     please_login: 'ログインしてください'
     judgement: '判定'
-    delete: 'テーマをリタイアする'
+    theme_delete: 'テーマをリタイアする'
   static_pages:
     top:
       title: 'トップページ'
@@ -35,6 +37,11 @@ ja:
       title: 'プロフィール'
     edit:
       title: 'プロフィール変更'
+    update:
+      success: 'プロフィール変更が完了しました'
+      fail: 'プロフィール変更に失敗しました'
+    destroy:
+      success: 'ユーザーを削除しました'
   theme_boards:
     index:
       title: 'テーマボード'
