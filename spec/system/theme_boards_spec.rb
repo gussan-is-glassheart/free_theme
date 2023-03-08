@@ -25,7 +25,7 @@ RSpec.describe "ThemeBoards", type: :system do
       it '削除が成功する' do
         click_link I18n.t('theme_boards.new.title')
         click_button @category.name
-        click_link I18n.t('defaults.delete')
+        click_link I18n.t('defaults.theme_delete')
         expect(page).to have_content I18n.t('theme_boards.destroy.success')
         expect(current_path).to eq theme_boards_path
       end

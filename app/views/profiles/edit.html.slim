@@ -1,0 +1,18 @@
+- content_for(:title, t('.title'))
+h1
+  = t('.title')
+= form_with model: @user, url: profile_path, local: true do |f|
+  = render 'shared/error_messages', object: f.object
+  .form_control
+    label.label
+      span.label-text
+        = User.human_attribute_name('name')
+    = f.text_field :name
+  .form_control
+    label.label
+      span.label-text
+        = User.human_attribute_name('email')
+    = @user.email
+  .form-control
+    button
+      = t('defaults.edit')
