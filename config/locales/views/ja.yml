@@ -10,6 +10,7 @@ ja:
     please_login: 'ログインしてください'
     judgement: '判定'
     theme_delete: 'テーマをリタイアする'
+    password_resets: 'パスワードリセット'
   static_pages:
     top:
       title: 'トップページ'
@@ -57,3 +58,15 @@ ja:
       fail: 'お題を達成できませんでした'
     destroy:
       success: 'テーマを削除しました'
+  password_resets:
+    new:
+      title: 'パスワードリセット受付'
+      submit: '送信'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセットのメールを送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'
+      password_empty: 'が未入力です'

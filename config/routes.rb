@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 # テーマボード
   resources :theme_boards, except: %i[edit]
 
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resource :profile, only: %i[show edit update destroy]
+  resources :password_resets, only: %i[new create edit update]
 end
