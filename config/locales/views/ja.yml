@@ -10,7 +10,7 @@ ja:
     please_login: 'ログインしてください'
     judgement: '判定'
     theme_delete: 'テーマをリタイアする'
-    password_resets: 'パスワードリセット'
+    password_resets: '【Free Theme】パスワードリセットに関するご案内'
   static_pages:
     top:
       title: 'トップページ'
