@@ -10,12 +10,18 @@ class ThemeBoard < ApplicationRecord
     theme.theme_boards.create!(user_id: user_id)
   end
 
-  def self.image_judgement(theme_board, image)
+  def image_judgement(image)
     # 該当テーマの答えを配列で取得
-    items = theme_board.themeable.theme_items.pluck(:subject)
+    items = themeable.theme_items.pluck(:subject)
     # アップロードした画像のラベルを配列で取得(API)
     labels = Vision.get_image_data(image.path)
     # labelsの中にitemsの要素がすべて含まれているか？
-    items.to_set.subset?(labels.to_set) ? true : false
+    if items.to_set.subset?(labels.to_set)
+      # 判定が通れば画像を保存し、ステータスを更新
+      PhotoAchievement.create(theme_board_id: self.id, content: image)
+      self.update(complete: true)
+    else
+      false
+    end
   end
 end

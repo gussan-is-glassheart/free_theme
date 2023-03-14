@@ -55,7 +55,10 @@ ja:
     show:
     update:
       success: 'お題を達成しました！'
-      fail: 'お題を達成できませんでした'
+      fail_to_judge: 'お題の画像とは判定されませんでした'
+      content_empty: '画像を選択してください'
+      invalid_image_type: '画像はJPEG、PNG, GIF形式の画像を選択してください'
+      invalid_image_size: '画像は5MB以内にしてください'
     destroy:
       success: 'テーマを削除しました'
   password_resets:

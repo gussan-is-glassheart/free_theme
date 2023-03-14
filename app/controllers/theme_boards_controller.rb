@@ -19,13 +19,12 @@ class ThemeBoardsController < ApplicationController
   end
 
   def update
-    theme_board = ThemeBoard.find(params[:id])
-    if params[:theme_board].present? && ThemeBoard.image_judgement(theme_board, theme_board_params[:content])
-      PhotoAchievement.create(theme_board_id: theme_board.id, content: theme_board_params[:content])
-      theme_board.update(complete: true)
-      redirect_to theme_board, success: t('.success')
+    @theme_board = ThemeBoard.find(params[:id])
+    valid_params?(params[:theme_board]) and return
+    if @theme_board.image_judgement(theme_board_params[:content])
+      redirect_to @theme_board, success: t('.success')
     else
-      redirect_to theme_board, error: t('.fail')
+      redirect_to @theme_board, error: t('.fail_to_judge')
     end
   end
 
@@ -39,6 +38,16 @@ class ThemeBoardsController < ApplicationController
 
   def theme_board_params
     params.require(:theme_board).permit(:content)
+  end
+
+  def valid_params?(theme)
+    if theme.nil?
+      redirect_to @theme_board, error: t('.content_empty')
+    elsif !theme[:content].content_type.in?(%q{image/jpeg image/png image/gif})
+      redirect_to @theme_board, error: t('.invalid_image_type')
+    elsif theme[:content].size > 5.megabytes
+      redirect_to @theme_board, error: t('.invalid_image_size')
+    end
   end
 
 end
