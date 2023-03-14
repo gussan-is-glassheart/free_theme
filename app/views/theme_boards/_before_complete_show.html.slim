@@ -6,6 +6,6 @@ div
   .form_control
     = f.submit t('defaults.judgement')
     label.label
-      ul
-        li
-          = link_to t('defaults.theme_retire'), theme_board_path, data: { turbo_method: :delete }
+ul
+  li
+    = link_to t('defaults.theme_retire'), theme_board_path, data: { turbo_method: :delete }

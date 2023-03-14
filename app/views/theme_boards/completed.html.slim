@@ -5,12 +5,12 @@ h1
 div
   ul
     li
-      = link_to '受注中', theme_boards_path
+      = link_to '受注中', '#'
     li
-      = link_to '達成済', completed_theme_boards_path
+      = link_to '達成済', '#'
   div
     - if @theme_boards.present?
       = render @theme_boards
     - else
       p
-        = t('.no_result_unachieved')
+        = t('.no_result_achievement')

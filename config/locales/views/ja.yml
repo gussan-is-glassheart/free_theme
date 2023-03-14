@@ -46,9 +46,8 @@ ja:
       success: 'ユーザーを削除しました'
   theme_boards:
     index:
-      title: 'テーマボード'
+      title: 'テーマボード一覧'
       no_result_unachieved: '未達成のテーマはありません'
-      no_result_achievement: '達成済みのテーマはありません'
     new:
       title: 'テーマ選択'
     create:
@@ -62,6 +61,9 @@ ja:
       invalid_image_size: '画像は5MB以内にしてください'
     destroy:
       success: 'テーマを削除しました'
+    completed:
+      title: '達成済テーマボード一覧'
+      no_result_achievement: '達成済みのテーマはありません'
   password_resets:
     new:
       title: 'パスワードリセット受付'

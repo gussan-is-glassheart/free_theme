@@ -1,6 +1,6 @@
 class ThemeBoardsController < ApplicationController
   def index
-    @theme_boards = ThemeBoard.all.includes(:user).order(created_at: :desc)
+    @theme_boards = current_user.theme_boards.includes(:user).where(complete: false).order(created_at: :desc)
   end
 
   def new
@@ -32,6 +32,10 @@ class ThemeBoardsController < ApplicationController
     theme_board = ThemeBoard.find(params[:id])
     theme_board.destroy!
     redirect_to theme_boards_path, success: t('.success')
+  end
+
+  def completed
+    @theme_boards = current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc)
   end
 
   private
