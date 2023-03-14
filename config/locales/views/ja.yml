@@ -9,7 +9,8 @@ ja:
     invalid_access: '不正なアクセスです'
     please_login: 'ログインしてください'
     judgement: '判定'
-    theme_delete: 'テーマをリタイアする'
+    theme_retire: 'テーマをリタイアする'
+    theme_delete: 'テーマを削除する'
     password_resets: '【Free Theme】パスワードリセットに関するご案内'
   static_pages:
     top:
