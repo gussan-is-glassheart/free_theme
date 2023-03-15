@@ -74,9 +74,6 @@ gem 'google-cloud-vision'
 # 環境変数の管理
 gem 'dotenv-rails'
 
-# タスク関連
-gem 'whenever'
-
 # 定数管理
 gem 'config'
 

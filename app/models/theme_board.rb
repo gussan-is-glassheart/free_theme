@@ -3,6 +3,8 @@ class ThemeBoard < ApplicationRecord
   belongs_to :themeable, polymorphic: true
   has_one :photo_achievement, dependent: :destroy
 
+  scope :unachieved_boards, -> { where(complete: false) }
+
   def self.set_photo_theme(id, user_id)
     # id(カテゴリ)があれば該当カテゴリでランダムに取得して代入
     # idがなければ全体でランダムに取得して代入

@@ -5,9 +5,9 @@ h1
 div
   ul
     li
-      = link_to '受注中', '#'
+      = link_to '受注中', theme_boards_path
     li
-      = link_to '達成済', '#'
+      = link_to '達成済', completed_theme_boards_path
   div
     - if @theme_boards.present?
       = render @theme_boards
