@@ -30,7 +30,7 @@ class ThemeBoardsController < ApplicationController
   end
 
   def destroy
-    theme_board.destroy!
+    @theme_board.destroy!
     redirect_to theme_boards_path, success: t('.success')
   end
 
