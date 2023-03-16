@@ -25,7 +25,7 @@ RSpec.describe "ThemeBoards", type: :system do
       it '削除が成功する' do
         click_link I18n.t('theme_boards.new.title')
         click_button @category.name
-        click_link I18n.t('defaults.theme_delete')
+        click_link I18n.t('defaults.theme_retire')
         expect(page).to have_content I18n.t('theme_boards.destroy.success')
         expect(current_path).to eq theme_boards_path
       end
@@ -50,14 +50,30 @@ RSpec.describe "ThemeBoards", type: :system do
       it 'お題の判定に失敗する' do
         attach_file 'theme_board_content', "#{Rails.root}/spec/fixtures/images/failure_judge_image.jpg"
         click_button I18n.t('defaults.judgement')
-        expect(page).to have_content I18n.t('theme_boards.update.fail')
+        expect(page).to have_content I18n.t('theme_boards.update.fail_to_judge')
       end
     end
 
     context '画像をアップロードしていない' do
       it 'お題に判定に失敗する' do
         click_button I18n.t('defaults.judgement')
-        expect(page).to have_content I18n.t('theme_boards.update.fail')
+        expect(page).to have_content I18n.t('theme_boards.update.content_empty')
+      end
+    end
+
+    context '容量の大きい画像をアップロード' do
+      it 'お題の判定に失敗する' do
+        attach_file 'theme_board_content', "#{Rails.root}/spec/fixtures/images/failure_large_image.jpg"
+        click_button I18n.t('defaults.judgement')
+        expect(page).to have_content I18n.t('theme_boards.update.invalid_image_size')
+      end
+    end
+
+    context '画像ではないファイルをアップロード' do
+      it 'お題の判定に失敗する' do
+        attach_file 'theme_board_content', "#{Rails.root}/spec/fixtures/images/failure_not_image_file.txt"
+        click_button I18n.t('defaults.judgement')
+        expect(page).to have_content I18n.t('theme_boards.update.invalid_image_type')
       end
     end
   end
