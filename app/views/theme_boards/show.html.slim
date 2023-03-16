@@ -6,8 +6,11 @@ h1
   = "#{@theme.target}を撮影しよう"
 
 div
-  - if @theme_board.complete == false
-    = render 'theme_boards/before_complete_show', theme_board: @theme_board
+  - if @theme_board.user == current_user
+    - if @theme_board.complete == false
+      = render 'theme_boards/before_complete_show', theme_board: @theme_board
+    - else
+      = render 'theme_boards/after_complete_show',
+      theme_board: @theme_board
   - else
-    = render 'theme_boards/after_complete_show',
-    theme_board: @theme_board
+    = link_to "自分のテーマを作ってお題にチャレンジ！", new_theme_board_path
