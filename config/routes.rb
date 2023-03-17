@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 # テーマボード
-  resources :theme_boards, except: %i[edit]
+  resources :theme_boards, except: %i[edit] do
+    collection do
+      get :completed
+    end
+  end
 
 # 静的ページ
   root 'static_pages#top'
