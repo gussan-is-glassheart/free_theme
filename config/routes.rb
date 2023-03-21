@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     end
   end
 
+# お試し
+  get 'trial', to: 'trials#show'
+  post 'trial', to: 'trials#update'
+
 # 静的ページ
   root 'static_pages#top'
   get 'terms', to: 'static_pages#terms'

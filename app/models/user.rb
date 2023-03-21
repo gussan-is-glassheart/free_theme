@@ -10,4 +10,17 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 255 }
+
+  scope :temporary_accounts, -> { where(temporary: true) }
+
+  # お試しユーザーの作成
+  def self.trial_user_create
+    User.create(
+      name: "demo_user",
+      email: "demo_#{SecureRandom.uuid}@example.com",
+      password: "password",
+      password_confirmation: "password",
+      temporary: true
+    )
+  end
 end

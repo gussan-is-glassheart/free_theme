@@ -19,6 +19,7 @@ module Vision
           },
           features: [
             {
+              maxResults: 20,
               type: 'LABEL_DETECTION'
             }
           ]

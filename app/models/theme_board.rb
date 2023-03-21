@@ -26,4 +26,10 @@ class ThemeBoard < ApplicationRecord
       false
     end
   end
+
+  # お試しテーマボードの作成
+  def self.trial_theme_board_create(user, content)
+    trial_board = PhotoTheme.find(5).theme_boards.create(user_id: user.id, complete: true)
+    PhotoAchievement.create(theme_board_id: trial_board.id, content: content)
+  end
 end
