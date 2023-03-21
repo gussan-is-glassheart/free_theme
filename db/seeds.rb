@@ -17,7 +17,8 @@ theme_items = [
   {id: 5, subject: "Rock dove"},
   {id: 6, subject: "Temple"},
   {id: 7, subject: "Japanese architecture"},
-  {id: 8, subject: "Shrine"}
+  {id: 8, subject: "Shrine"},
+  {id: 9, subject: "Cat"}
 ]
 
 theme_items.each do |theme_item|
@@ -29,7 +30,8 @@ photo_themes = [
   {id: 1, category_id: 1, target: "神社・仏閣"},
   {id: 2, category_id: 2, target: "犬"},
   {id: 3, category_id: 1, target: "タワー"},
-  {id: 4, category_id: 2, target: "ハト"}
+  {id: 4, category_id: 2, target: "ハト"},
+  {id: 5, category_id: 2, target: "猫"}
 ]
 
 photo_themes.each do |photo_theme|
@@ -44,7 +46,8 @@ photo_theme_items = [
   {id: 4, photo_theme_id: 2, theme_item_id: 3},
   {id: 5, photo_theme_id: 3, theme_item_id: 1},
   {id: 6, photo_theme_id: 4, theme_item_id: 4},
-  {id: 7, photo_theme_id: 4, theme_item_id: 5}
+  {id: 7, photo_theme_id: 4, theme_item_id: 5},
+  {id: 8, photo_theme_id: 5, theme_item_id: 9}
 ]
 
 photo_theme_items.each do |photo_theme_item|

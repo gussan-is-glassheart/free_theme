@@ -23,7 +23,8 @@ class UserSessionsController < ApplicationController
   private
 
   def not_temporary_account
-    unless User.find_by(email: params[:email]).temporary == false
+    user = User.find_by(email: params[:email])
+    if user&.temporary == true
       flash.now[:error] = t('.fail')
       render :new, status: :unprocessable_entity
     end

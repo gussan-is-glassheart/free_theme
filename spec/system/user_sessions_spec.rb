@@ -47,6 +47,18 @@ RSpec.describe "UserSessions", type: :system do
         expect(current_path).to eq login_path
       end
     end
+
+    context '仮ユーザーでのログイン' do
+      it 'ログインに失敗する' do
+        temporary_user = create(:user, temporary: true)
+        visit login_path
+        fill_in 'email', with: temporary_user.email
+        fill_in 'password', with: 'password'
+        click_button I18n.t('defaults.login')
+        expect(page).to have_content I18n.t('user_sessions.create.fail')
+        expect(current_path).to eq login_path
+      end
+    end
   end
 
   describe 'ログイン後' do

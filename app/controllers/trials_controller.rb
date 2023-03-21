@@ -34,7 +34,7 @@ class TrialsController < ApplicationController
   end
 
   def trial_image_judgement(image)
-    items = PhotoTheme.find(1).theme_items.pluck(:subject)
+    items = PhotoTheme.find(5).theme_items.pluck(:subject)
     labels = Vision.get_image_data(image.path)
     if items.to_set.subset?(labels.to_set)
       true
