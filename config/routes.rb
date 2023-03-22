@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     collection do
       get :completed
     end
+    member do
+      get :download
+    end
   end
 
 # お試し

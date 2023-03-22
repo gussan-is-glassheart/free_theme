@@ -38,6 +38,13 @@ class ThemeBoardsController < ApplicationController
     @theme_boards = current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc)
   end
 
+  def download
+    @achievement = ThemeBoard.find(params[:id]).photo_achievement
+    filepath = @achievement.content.current_path
+    stat = File::stat(filepath)
+    send_file(filepath, :filename => @achievement.content_identifier, :length => stat.size)
+  end
+
   private
 
   def theme_board_params
