@@ -42,7 +42,7 @@ RSpec.describe "ThemeBoards", type: :system do
         attach_file 'theme_board_content', "#{Rails.root}/spec/fixtures/images/success_judge_image.jpg"
         click_button I18n.t('defaults.judgement')
         expect(page).to have_content I18n.t('theme_boards.update.success')
-        expect(page).to have_selector("img[src$='success_judge_image.jpg']")
+        expect(page).to have_content "complete"
       end
     end
 
