@@ -1,5 +1,8 @@
 div
   = image_tag "#{theme_board.photo_achievement.content}", size: "300x200"
+
+  = link_to 'ダウンロード', download_theme_board_path(theme_board)
+
   ul
     li
       = link_to t('defaults.theme_delete'), theme_board_path, data: { turbo_method: :delete }
