@@ -75,5 +75,4 @@ class ThemeBoardsController < ApplicationController
       URI.open(file.content.path)
     end
   end
-
 end
