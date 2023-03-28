@@ -40,9 +40,8 @@ class ThemeBoardsController < ApplicationController
 
   def download
     @achievement = ThemeBoard.find(params[:id]).photo_achievement
-    filepath = @achievement.content.current_path
-    stat = File::stat(filepath)
-    send_file(filepath, :filename => @achievement.content_identifier, :length => stat.size)
+    url = what_environment(@achievement)
+    send_data url.read, disposition: 'attachment', type: @achievement.content.content_type, filename: @achievement.content_identifier
   end
 
   private
@@ -69,4 +68,11 @@ class ThemeBoardsController < ApplicationController
     end
   end
 
+  def what_environment(file)
+    if Rails.env.production?
+      URI.open(file.content_url)
+    else
+      URI.open(file.content.path)
+    end
+  end
 end
