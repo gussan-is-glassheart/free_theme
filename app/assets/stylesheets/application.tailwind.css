@@ -2,12 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  .default-btn {
+    @apply border py-1.5 px-4;
+  }
+  .line-under {
+    @apply inline-block relative no-underline after:absolute after:content-[''] after:bottom-0 after:left-0 after:w-0 after:h-px after:transition-all after:duration-300 hover:after:w-full;
+  }
+  .page-title {
+    @apply text-3xl mb-12 font-bold block mx-auto text-center
+  }
+  .page-title-line {
+    @apply border-b px-6;
+  }
+  .label {
+    @apply block mb-1;
+  }
+  .input_field {
+    @apply w-full border-0 px-2 py-1.5;
   }
 }
 
-*/
+@layer utilities {
+  .default-btn-color {
+    @apply border-default-black hover:bg-active-yellow;
+  }
+}

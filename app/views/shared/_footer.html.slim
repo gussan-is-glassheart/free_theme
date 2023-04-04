@@ -1,11 +1,10 @@
-footer
-  div
-    = link_to 'Free Theme', root_path
-  div
-    ul
-      li
-        = link_to t('static_pages.privacy_policy.title'), privacy_policy_path
-      li
-        = link_to t('static_pages.terms.title'), terms_path
-      li
-        = link_to 'お問い合わせ', 'https://docs.google.com/forms/d/e/1FAIpQLScecyBvDUEKgetmBL2S8cdWHYOQp0Ykai7Xf4mMOtn8ZIvPvw/viewform?usp=sf_link', target: :_blank
+footer.bg-deep-sky.text-white
+  ul.text-center.mb-10.md:max-w-xl.md:mx-auto.md:flex.md:justify-evenly.md:pt-10
+    li
+      = link_to t('static_pages.privacy_policy.title'), privacy_policy_path, class:'py-4 block border-b border-white md:hover:border-b-0 md:py-0.5'
+    li
+      = link_to t('static_pages.terms.title'), terms_path, class:'py-4 block border-b border-white md:hover:border-b-0 md:py-0.5'
+    li
+      = link_to 'お問い合わせ', 'https://docs.google.com/forms/d/e/1FAIpQLScecyBvDUEKgetmBL2S8cdWHYOQp0Ykai7Xf4mMOtn8ZIvPvw/viewform?usp=sf_link', target: :_blank, class:'py-4 block border-b border-white md:hover:border-b-0 md:py-0.5'
+  small.block.text-center.pb-10
+    | &copy; Free Theme

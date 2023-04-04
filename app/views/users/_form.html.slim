@@ -1,27 +1,21 @@
-div
-  div
-    = form_with model: user, url: signup_path, local: true do |f|
-      = render 'shared/error_messages', object: f.object
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('name')
-        = f.text_field :name
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('email')
-        = f.text_field :email
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('password')
-        = f.password_field :password
-      .form-control
-        label.label
-          span.label-text
-            = User.human_attribute_name('password_confirmation')
-        = f.password_field :password_confirmation
-      .form-control
-        button
-          = t('defaults.register')
+= form_with model: user, url: signup_path, local: true do |f|
+  = render 'shared/error_messages', object: f.object
+  .mb-6
+    label.label
+      = User.human_attribute_name('name')
+    = f.text_field :name, class: 'input_field  bg-gray-200'
+  .mb-6
+    label.label
+      = User.human_attribute_name('email')
+    = f.text_field :email, class: 'input_field  bg-gray-200'
+  .mb-6
+    label.label
+      = User.human_attribute_name('password')
+    = f.password_field :password, class: 'input_field  bg-gray-200'
+  .mb-6
+    label.label
+      = User.human_attribute_name('password_confirmation')
+    = f.password_field :password_confirmation, class: 'input_field  bg-gray-200'
+  .mb-6.text-center
+    button.default-btn.default-btn-color
+      = t('defaults.register')

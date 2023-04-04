@@ -1,22 +1,18 @@
 - content_for(:title, t('.title'))
-div
-  div
-    div
-      h1
-        = t('.title')
-      table
-        tr
-          th
-            = User.human_attribute_name(:name)
-          td
-            = current_user.name
-        tr
-          th
-            = User.human_attribute_name(:email)
-          td
-            = current_user.email
-      ul
-        li
-          = link_to t('defaults.edit'), edit_profile_path
-        li
-          = link_to t('defaults.user_delete'),  profile_path, data: { turbo_method: :delete, turbo_confirm: t('defaults.user_delete_confirmation') }
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    = t('.title')
+.mb-8.max-w-md.mx-auto
+  dl.mb-8
+    dt.text-lg.mb-1
+      = User.human_attribute_name(:name)
+    dd.pl-3.pb-1.border-b.border-default-black
+      = current_user.name
+  dl
+    dt.text-lg.mb-1
+      = User.human_attribute_name(:email)
+    dd.pl-3.pb-1.border-b.border-default-black
+      = current_user.email
+.flex.justify-center
+  = link_to t('defaults.edit'), edit_profile_path, class: 'default-btn default-btn-color'
+  = link_to t('defaults.user_delete'),  profile_path, data: { turbo_method: :delete, turbo_confirm: t('defaults.user_delete_confirmation') }, class: 'default-btn default-btn-color ml-8'

@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_not_logged_in
-    redirect_to profile_path, error: t('defaults.invalid_access') if logged_in?
+    redirect_to theme_boards_path, error: t('defaults.invalid_access') if logged_in?
   end
 end

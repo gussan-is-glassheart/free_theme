@@ -1,8 +1,8 @@
     li
-      = link_to t('profiles.show.title'), profile_path
-    li
-      = link_to t('theme_boards.new.title'), new_theme_board_path
-    li
-      = link_to t('theme_boards.index.title'), theme_boards_path
-    li
-      = link_to t('defaults.logout'), logout_path, data: { turbo_method: :delete }
+      = link_to t('profiles.show.title'), profile_path, class: 'line-under after:bg-default-black'
+    li.ml-6
+      = link_to t('theme_boards.new.title'), new_theme_board_path, class: 'line-under after:bg-default-black'
+    li.ml-6
+      = link_to t('theme_boards.index.title'), theme_boards_path, class: 'line-under after:bg-default-black'
+    li.ml-6
+      = link_to t('defaults.logout'), logout_path, data: { turbo_method: :delete }, class: 'line-under after:bg-default-black'

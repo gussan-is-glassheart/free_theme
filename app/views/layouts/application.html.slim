@@ -1,5 +1,5 @@
 doctype html
-html
+html.text-default-black
   head
     title
       = page_title(yield(:title))
@@ -10,7 +10,10 @@ html
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-    = render 'shared/header'
+
+  body.bg-white
+    = render 'shared/header' unless current_page?(root_path)
     = render 'shared/flash_message'
-    = yield
+    div class="mx-4 mb-16 sm:mx-auto #{current_page?(root_path) ? 'sm:max-w-3xl' : 'sm:max-w-xl'}"
+      = yield
     = render 'shared/footer'
