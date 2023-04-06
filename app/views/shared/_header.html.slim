@@ -1,11 +1,17 @@
 header.border-b-4.border-deep-sky.mb-12
   div.flex.justify-around.py-4.px-6
     = link_to 'Free Theme', root_path, class: 'w-auto text-deep-sky font-semibold text-3xl md:w-1/3'
-    ul.fixed.left-0.bottom-0.text-center.w-full.flex.justify-end.items-center.bg-white.md:static.md:w-2/3
+    ul.fixed.left-0.bottom-0.text-center.w-full.bg-white.flex.md:justify-end.md:items-center.md:static.md:w-2/3
       - if logged_in?
         = render 'shared/after_login_header'
       - else
-        li.w-1/2.md:w-auto
-          = link_to t('users.new.title'), signup_path, class: 'block text-xs after:bg-default-black pb-2 border-b-8 border-deep-sky md:border-b-0 md:pb-0 md:line-under md:text-base'
-        li.w-1/2.border-l.md:border-l-0.md:ml-6.md:w-auto
-          = link_to t('defaults.login'), login_path, class: 'block text-xs after:bg-default-black pb-2 border-b-8 border-deep-sky md:border-b-0 md:pb-0 md:line-under md:text-base'
+        li.w-1/2.g-nav-box.md:w-auto
+          = link_to signup_path, class: 'g-nav-btn border-deep-sky md:line-under md:after:bg-default-black' do
+            i.fa-solid.fa-user-plus.fa-2xl.text-deep-sky.g-nav-icon
+            span.g-nav-text
+              = t('users.new.title')
+        li.w-1/2.g-nav-box.border-l.md:border-l-0.md:ml-6.md:w-auto
+          = link_to login_path, class: 'g-nav-btn border-deep-sky md:line-under md:after:bg-default-black' do
+            i.fa-solid.fa-right-to-bracket.fa-2xl.text-deep-sky.g-nav-icon
+            span.g-nav-text
+              = t('defaults.login')

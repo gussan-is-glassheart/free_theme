@@ -21,6 +21,19 @@
   .input_field {
     @apply w-full border-0 px-2 py-1.5;
   }
+  .g-nav-box {
+    @apply border-t md:border-t-0;
+  }
+  .g-nav-btn {
+    @apply block pb-2 border-b-8 md:border-b-0 md:pb-0;
+  }
+  .g-nav-icon {
+    @apply mt-3 mx-auto block md:hidden;
+  }
+  .g-nav-text {
+    @apply text-xs md:text-base;
+  }
+
 }
 
 @layer utilities {
