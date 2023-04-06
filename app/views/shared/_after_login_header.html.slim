@@ -1,8 +1,20 @@
-    li
-      = link_to t('profiles.show.title'), profile_path
-    li
-      = link_to t('theme_boards.new.title'), new_theme_board_path
-    li
-      = link_to t('theme_boards.index.title'), theme_boards_path
-    li
-      = link_to t('defaults.logout'), logout_path, data: { turbo_method: :delete }
+    li.w-1/4.g-nav-box.md:ml-6.md:w-auto
+      = link_to profile_path, class: 'g-nav-btn border-deep-sky md:line-under md:after:bg-default-black' do
+        i.fa-solid.fa-user.fa-2xl.text-deep-sky.g-nav-icon
+        span.g-nav-text
+          = t('profiles.show.title')
+    li.g-nav-box.w-1/4.border-l.md:border-l-0.md:ml-6.md:w-auto
+      = link_to new_theme_board_path, class: 'g-nav-btn border-deep-sky md:line-under md:after:bg-default-black' do
+        i.fa-solid.fa-flag.fa-2xl.text-deep-sky.g-nav-icon
+        span.g-nav-text
+          = t('theme_boards.new.title')
+    li.g-nav-box.w-1/4.border-l.md:border-l-0.md:ml-6.md:w-auto
+      = link_to theme_boards_path, class: 'g-nav-btn border-deep-sky md:line-under md:after:bg-default-black' do
+        i.fa-solid.fa-rectangle-list.fa-2xl.text-deep-sky.g-nav-icon
+        span.g-nav-text
+          = t('theme_boards.index.title')
+    li.g-nav-box.w-1/4.border-l.md:border-l-0.md:ml-6.md:w-auto
+      = link_to logout_path, data: { turbo_method: :delete }, class: 'g-nav-btn border-deep-sky md:line-under md:after:bg-default-black' do
+        i.fa-solid.fa-right-from-bracket.fa-2xl.text-deep-sky.g-nav-icon
+        span.g-nav-text
+          = t('defaults.logout')

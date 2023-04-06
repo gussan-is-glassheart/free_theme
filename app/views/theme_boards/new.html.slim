@@ -1,14 +1,16 @@
 - content_for(:title, t('.title'))
-h1
-  = t('.title')
-div
-  h3
-    | ランダムでテーマを作成
-  = button_to 'ランダムでテーマを作成', theme_boards_path, data: { turbo_method: :post }
-div
-  h3
-    | テーマを選択して作成
-  ul
-    - @categories.each do |category|
-        li
-          = button_to category.name, theme_boards_path, { method: :post, params: {category_id: category.id} }
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    = t('.title')
+.max-w-sm.mx-auto
+  .mb-10
+    h3.mb-4.font-bold.text-lg
+      | ランダムでテーマを作成
+    = button_to 'ランダムでテーマを作成', theme_boards_path, data: { turbo_method: :post }, class: 'default-btn default-btn-color w-full mx-auto block font-bold text-deep-sky'
+  .mb-10
+    h3.mb-4.font-bold.text-lg
+      | テーマを選択して作成
+    ul.flex.flex-wrap
+      - @categories.each do |category|
+          li.w-1/4.mb-6
+            = button_to category.name, theme_boards_path, { method: :post, class: 'default-btn block default-btn-color py-5 mx-auto font-bold text-deep-sky', params: {category_id: category.id} }

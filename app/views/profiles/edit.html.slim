@@ -1,18 +1,17 @@
 - content_for(:title, t('.title'))
-h1
-  = t('.title')
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    = t('.title')
 = form_with model: @user, url: profile_path, local: true do |f|
   = render 'shared/error_messages', object: f.object
-  .form_control
+  .mb-6
     label.label
-      span.label-text
-        = User.human_attribute_name('name')
-    = f.text_field :name
-  .form_control
+      = User.human_attribute_name('name')
+    = f.text_field :name, class: 'input_field  bg-gray-200'
+  .mb-6
     label.label
-      span.label-text
-        = User.human_attribute_name('email')
+      = User.human_attribute_name('email')
     = @user.email
-  .form-control
-    button
+  .mb-6.text-center
+    button.default-btn.default-btn-color
       = t('defaults.edit')

@@ -1,4 +1,14 @@
-h1
-  | Free Theme
+.mt-40.mb-40.text-center.sm:flex.sm:items-center.sm:justify-center.sm:mb-8.relative.sm:mt-24
+  = image_tag 'main_visual.png', class: 'absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-28 sm:static sm:w-1/2 sm:translate-y-0 sm:translate-x-0 sm:w-32'
+  h1.text-5xl.font-semibold.text-deep-sky.inline-block.border-b-2.border-deep-sky.px-4.md:text-8xl
+    | Free Theme
 
-= link_to 'お試し', trial_path
+p.mx-auto.max-w-lg.mb-12.leading-8.-indent-2
+  | 「Free Theme」は旅行やおでかけの余った時間に 自分(達)の代わりにお題(テーマ)をくれるアプリです。<br>
+    旅行中やお出かけをしている中で、次の予定までに空いてしまった空白の時間にちょっとした目的を作ります。ぜひ、あなたのお出かけに合ったお題を見つけてみてください。
+.flex.justify-center
+  - if logged_in?
+    = link_to 'テーマを作成', new_theme_board_path, class: 'default-btn default-btn-color'
+  - else
+    = link_to t('defaults.login'), login_path, class: 'default-btn default-btn-color'
+    = link_to 'お試し', trial_path, class: 'default-btn default-btn-color ml-8'

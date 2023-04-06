@@ -1,16 +1,18 @@
 - content_for(:title, t('.title'))
-h1
-  = t('.title')
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    = t('.title')
 
-div
-  ul
-    li
-      = link_to '受注中', theme_boards_path
-    li
-      = link_to '達成済', completed_theme_boards_path
+.font-bold
+  ul.flex.text-center.justify-center.text-white.mb-8
+    li.w-2/5.bg-amber-300.rounded-md
+      = link_to '受注中', theme_boards_path, class: 'block py-2'
+    li.w-2/5.bg-gray-300.rounded-md.ml-6
+      = link_to '達成済', completed_theme_boards_path, class: 'block py-2'
   div
-    - if @theme_boards.present?
-      = render @theme_boards
-    - else
-      p
-        = t('.no_result_unachieved')
+    ul
+      - if @theme_boards.present?
+        = render @theme_boards
+      - else
+        p.text-center
+          = t('.no_result_unachieved')

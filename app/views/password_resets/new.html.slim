@@ -1,12 +1,13 @@
 - content_for(:title, t('.title'))
-h1
-  = t('.title')
-= form_with url: password_resets_path, local: true do |f|
-  .form-control
-    label.label
-      span.label-text
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    = t('.title')
+.max-w-lg.mx-auto
+  = form_with url: password_resets_path, local: true do |f|
+    .mb-6
+      label.label
         = User.human_attribute_name('email')
-    = f.text_field :email
-  .form-control
-    button
-      = t('password_resets.new.submit')
+      = f.text_field :email, class: 'input_field bg-gray-200'
+    .mb-6.text-center
+      button.default-btn.default-btn-color
+        = t('password_resets.new.submit')

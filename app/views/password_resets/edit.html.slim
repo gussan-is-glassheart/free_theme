@@ -1,24 +1,22 @@
 - content_for(:title, t('.title'))
-h1
-  = t('.title')
-= form_with model: @user, url: password_reset_path(@token), local: true do |f|
-  = render 'shared/error_messages', object: f.object
-
-  .form-control
-    label.label
-      span.label-text
-        = User.human_attribute_name('email')
-    = @user.email
-  .form-control
-    label.label
-      span.label-text
-        = User.human_attribute_name('password')
-    = f.password_field :password
-  .form-control
-    label.label
-      span.label-text
-        = User.human_attribute_name('password_confirmation')
-    = f.password_field :password_confirmation
-  .form-control
-    button
-      = t('defaults.register')
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    = t('.title')
+.max-w-lg.mx-auto
+  = form_with model: @user, url: password_reset_path(@token), local: true do |f|
+    = render 'shared/error_messages', object: f.object
+      .mb-6
+        label.label
+          = User.human_attribute_name('email')
+        = @user.email
+      .mb-6
+        label.label
+          = User.human_attribute_name('password')
+        = f.password_field :password, class: 'input_field  bg-gray-200'
+      .mb-6
+        label.label
+          = User.human_attribute_name('password_confirmation')
+        = f.password_field :password_confirmation, class: 'input_field  bg-gray-200'
+      .mb-6
+        button.default-btn.default-btn-color
+          = t('defaults.register')

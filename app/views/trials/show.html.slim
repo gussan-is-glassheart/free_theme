@@ -1,28 +1,23 @@
 - content_for(:title, 'お試しテーマ')
-h1
-  | 猫を撮影しよう
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    | 猫を撮影しよう
 
-- if @content.present?
-  div
-    = image_tag "#{@content.content}", size: "300x200"
-
-div
-
-- if @content.present?
-  div
-    p
+.text-center
+  - if @content.present?
+    .mb-8
+      = image_tag "#{@content.content}", width: "300", class: "block mx-auto"
+    p.mb-4
       | 会員登録して別のテーマにもチャレンジしてみよう！
-    = link_to "#{t('users.new.title')}はこちら", signup_path
+    = link_to "#{t('users.new.title')}はこちら", signup_path, class: 'default-btn default-btn-color'
 
-- else
-  div
-    = form_with url: trial_path, scope: :theme_board, data: {turbo: false} do |f|
-      .form_control
-        label.label
-        = f.file_field :content
-      .form_control
-        = f.submit t('defaults.judgement')
-        label.label
-    ul
-      li
-        = link_to t('defaults.theme_retire'), root_path
+  - else
+    .mb-8
+      = form_with url: trial_path, scope: :theme_board, data: {turbo: false} do |f|
+        .mb-6
+          = f.file_field :content
+        .mb-6
+          = f.submit t('defaults.judgement'), class: 'default-btn default-btn-color cursor-pointer'
+      ul
+        li
+          = link_to t('defaults.theme_retire'), root_path

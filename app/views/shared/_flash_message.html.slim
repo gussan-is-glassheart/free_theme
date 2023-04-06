@@ -1,7 +1,8 @@
 - flash.each do |message_type, message|
-  - if flash[:success]
-    .alert.alert-success
-      = message
-  - if flash[:error]
-    .alert.alert-error
-      = message
+  div class="block text-center mb-12 #{ '-mt-12' unless current_page?(root_path) }"
+    - if flash[:success]
+      .bg-blue-100.text-blue-700.py-4
+        = message
+    - if flash[:error]
+      .bg-red-100.text-red-700.py-4
+        = message

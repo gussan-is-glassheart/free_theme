@@ -1,11 +1,15 @@
 - content_for(:title, @theme.target)
-h1
+h1.page-title.text-deep-sky
   - if @theme_board.complete == true
-    span
-      | complete
-  = "#{@theme.target}を撮影しよう"
+    span.text-white.bg-deep-sky.rounded-full.text-sm.block.w-1/4.py-1.mx-auto.mb-3.tracking-wider
+      | Complete!
+  - else
+    span.text-lg.block.w-1/4.mx-auto.mb-3.tracking-wider
+      | Theme
+  span.page-title-line.border-deep-sky
+    = "#{@theme.target}を撮影しよう"
 
-div
+.text-center
   - if @theme_board.complete == false
     = render 'theme_boards/before_complete_show', theme_board: @theme_board
   - else
