@@ -6,10 +6,13 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
+    add_flash_types :success, :error
+
+    before_action :require_login
     before_action :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      redirect_to theme_boards_path, error: t('defaults.invalid_access') unless current_user.admin?
     end
 
     # Override this value to specify the number of elements to display at a time

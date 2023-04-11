@@ -40,4 +40,7 @@ Rails.application.routes.draw do
 
   resource :profile, only: %i[show edit update destroy]
   resources :password_resets, only: %i[new create edit update]
+
+# 404ページ
+  get '*path', to: 'application#render_404'
 end
