@@ -8,7 +8,8 @@ p.mx-auto.max-w-lg.mb-12.leading-8.-indent-2
     旅行中やお出かけをしている中で、次の予定までに空いてしまった空白の時間にちょっとした目的を作ります。ぜひ、あなたのお出かけに合ったお題を見つけてみてください。
 .flex.justify-center
   - if logged_in?
-    = link_to 'テーマを作成', new_theme_board_path, class: 'default-btn default-btn-color'
+    = link_to t('theme_boards.new.title'), new_theme_board_path, class: 'default-btn default-btn-color'
+    = link_to t('theme_boards.index.title'), theme_boards_path, class: 'default-btn default-btn-color ml-8'
   - else
     = link_to t('defaults.login'), login_path, class: 'default-btn default-btn-color'
     = link_to 'お試し', trial_path, class: 'default-btn default-btn-color ml-8'

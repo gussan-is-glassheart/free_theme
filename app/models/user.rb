@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 255 }
 
+  enum role: { general: 0, admin: 1 }
+
   scope :temporary_accounts, -> { where(temporary: true) }
 
   # お試しユーザーの作成

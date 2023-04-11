@@ -1,0 +1,12 @@
+- content_for(:title, 'お探しのページは見つかりません')
+h1.page-title.text-deep-sky
+  span.page-title-line.border-deep-sky
+    | お探しのページは見つかりません
+
+p.mx-auto.max-w-lg.mb-12.leading-8
+  | お探しのページは一時的にアクセスできない状況にあるか、移動または削除された可能性があります。<br>
+    URLにお間違いがないかご確認をいただき、解決しない場合は下記ボタンからトップにお戻りください。
+
+.text-center
+  = link_to 'Topに戻る', root_path, class: 'default-btn default-btn-color'
+
