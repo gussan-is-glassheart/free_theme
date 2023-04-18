@@ -2,6 +2,6 @@
     = link_to theme_board, class: "block py-6 text-sm font" do
       span class="font-normal mx-6 text-gray-500"
         = l theme_board.created_at
-      span class="font-mono py-1 px-2 border-2 border-category-#{theme_board.themeable.category.id} tracking-widest mr-6 rounded-md"
+      span class="font-mono py-1 px-2 border-2 border-deep-sky tracking-widest mr-6 rounded-md"
         = theme_board.themeable.category.name
       = "#{theme_board.themeable.target}を撮影しよう"

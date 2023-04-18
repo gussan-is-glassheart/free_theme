@@ -11,7 +11,7 @@ html.text-default-black
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
 
-  body.bg-white
+  body class="bg-white #{current_page?(root_path) ? '' : 'mb-20 md:mb-0'}"
     = render 'shared/header' unless current_page?(root_path)
     = render 'shared/flash_message'
     div class="mx-4 mb-16 sm:mx-auto #{current_page?(root_path) ? 'sm:max-w-3xl' : 'sm:max-w-xl'}"
