@@ -68,9 +68,9 @@
 
 - 企画〜技術調査：2023/1/15〜2023/1/18
 - README〜ER図：〜2023/1/28
-- メイン機能実装：〜2023/2/26
-- MVPリリース：2023/3/4
-- 本リリース：2023/3/20
+- メイン機能実装：〜2023/4/27
+- MVPリリース：2023/4/28
+- 本リリース：2023/5/12(予定)
 
 ## ■画面遷移図
 
@@ -81,5 +81,4 @@ Figma：[https://www.figma.com/file/Np5swHiNeIlMQpZyFcAUyc/Free-Theme-%2F-画面
 [https://drive.google.com/file/d/1hrMiTyNCyAM8U-B0lh5isAU510FQ66SN/view?usp=sharing](https://drive.google.com/file/d/1hrMiTyNCyAM8U-B0lh5isAU510FQ66SN/view?usp=sharing)
 
 ## ■サービスURL
-[https://free-theme-app-0310.herokuapp.com]
-(https://free-theme-app-0310.herokuapp.com)
+[https://www.free-theme.net/](https://www.free-theme.net/)
