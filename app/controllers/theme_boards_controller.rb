@@ -1,14 +1,19 @@
 class ThemeBoardsController < ApplicationController
+  before_action :set_category, only: %i[index new completed]
   before_action :set_theme_board, only: %i[show update destroy]
   before_action :unauthorised_user, only: %i[show update destroy]
 
   def index
-    @theme_boards = current_user.theme_boards.includes(:user).where(complete: false).order(created_at: :desc)
+    @theme_boards = if (category_id = params[:category_id])
+                    theme_ids = with_category(category_id)
+                    current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: false)
+                  else
+                    current_user.theme_boards.includes(:user).where(complete: false).order(created_at: :desc)
+                  end
   end
 
   def new
     theme_board = ThemeBoard.new
-    @categories = Category.all
   end
 
   def show
@@ -35,7 +40,12 @@ class ThemeBoardsController < ApplicationController
   end
 
   def completed
-    @theme_boards = current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc)
+    @theme_boards = if (category_id = params[:category_id])
+      theme_ids = with_category(category_id)
+      current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: true)
+    else
+      current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc)
+    end
   end
 
   def download
@@ -46,12 +56,20 @@ class ThemeBoardsController < ApplicationController
 
   private
 
+  def with_category(category_id)
+    Category.find(category_id).photo_themes.includes(:category).pluck(:id)
+  end
+
   def theme_board_params
     params.require(:theme_board).permit(:content)
   end
 
   def set_theme_board
     @theme_board = ThemeBoard.find(params[:id])
+  end
+
+  def set_category
+    @categories = Category.all
   end
 
   def unauthorised_user
