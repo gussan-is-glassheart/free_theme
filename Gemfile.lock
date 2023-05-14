@@ -504,6 +504,7 @@ DEPENDENCIES
   html2slim
   importmap-rails
   jbuilder
+  kaminari
   letter_opener_web
   pg (~> 1.1)
   pry-rails

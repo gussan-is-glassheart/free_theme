@@ -5,11 +5,11 @@ class ThemeBoardsController < ApplicationController
 
   def index
     @theme_boards = if (category_id = params[:category_id])
-                    theme_ids = with_category(category_id)
-                    current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: false)
-                  else
-                    current_user.theme_boards.includes(:user).where(complete: false).order(created_at: :desc)
-                  end
+                      theme_ids = with_category(category_id)
+                      current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: false).order(created_at: :desc).page(params[:page])
+                    else
+                      current_user.theme_boards.includes(:user).where(complete: false).order(created_at: :desc).page(params[:page])
+                    end
   end
 
   def new
@@ -41,11 +41,11 @@ class ThemeBoardsController < ApplicationController
 
   def completed
     @theme_boards = if (category_id = params[:category_id])
-      theme_ids = with_category(category_id)
-      current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: true)
-    else
-      current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc)
-    end
+                      theme_ids = with_category(category_id)
+                      current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: true).order(created_at: :desc).page(params[:page])
+                    else
+                      current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc).page(params[:page])
+                    end
   end
 
   def download
