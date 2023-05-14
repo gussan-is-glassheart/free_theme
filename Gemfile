@@ -64,9 +64,10 @@ gem 'sorcery'
 
 # AWS S3による画像アップローダー用
 gem 'carrierwave'
-
-# S3実装時にコメントを解除
 gem 'fog-aws'
+
+# 画像リサイズ
+gem 'mini_magick'
 
 # Google Vision API
 gem 'google-cloud-vision'

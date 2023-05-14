@@ -81,8 +81,6 @@ class ThemeBoardsController < ApplicationController
       redirect_to @theme_board, error: t('.content_empty')
     elsif !theme[:content].content_type.in?(%q{image/jpeg image/png image/gif})
       redirect_to @theme_board, error: t('.invalid_image_type')
-    elsif theme[:content].size > 4.megabytes
-      redirect_to @theme_board, error: t('.invalid_image_size')
     end
   end
 
