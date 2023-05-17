@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :photo_theme do
     category factory: :category
-    target { "ハト" }
+    sequence(:target) { |n| "撮影テーマ#{n}"}
 
     after(:create) do |photo_theme|
       create(:photo_theme_item, photo_theme: photo_theme, theme_item: create(:theme_item, :a))

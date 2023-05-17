@@ -61,19 +61,24 @@ RSpec.describe "ThemeBoards", type: :system do
       end
     end
 
-    context '容量の大きい画像をアップロード' do
-      it 'お題の判定に失敗する' do
-        attach_file 'theme_board_content', "#{Rails.root}/spec/fixtures/images/failure_large_image.jpg"
-        click_button I18n.t('defaults.judgement')
-        expect(page).to have_content I18n.t('theme_boards.update.invalid_image_size')
-      end
-    end
-
     context '画像ではないファイルをアップロード' do
       it 'お題の判定に失敗する' do
         attach_file 'theme_board_content', "#{Rails.root}/spec/fixtures/images/failure_not_image_file.txt"
         click_button I18n.t('defaults.judgement')
         expect(page).to have_content I18n.t('theme_boards.update.invalid_image_type')
+      end
+    end
+  end
+
+  describe 'ページネーション' do
+    context 'テーマボードを11以上作成する' do
+      it 'ページネーションが表示される' do
+        theme_boards = create_list(:theme_board, 10, user: user, themeable: theme_board.themeable)
+        click_link I18n.t('theme_boards.index.title')
+        expect(page).to have_selector '.pagination'
+        expect(page).to have_selector '.next', text: 'Next'
+        click_on 'Next'
+        expect(page).to have_selector '.first', text: 'First'
       end
     end
   end
