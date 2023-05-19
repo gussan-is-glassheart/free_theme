@@ -12,13 +12,11 @@ class ThemeBoardsController < ApplicationController
                     end
   end
 
-  def new
-    theme_board = ThemeBoard.new
-  end
-
   def show
     @theme = @theme_board.themeable
   end
+
+  def new; end
 
   def create
     theme_board = ThemeBoard.set_photo_theme(params[:category_id], current_user.id)
@@ -79,16 +77,16 @@ class ThemeBoardsController < ApplicationController
   def valid_params?(theme)
     if theme.nil?
       redirect_to @theme_board, error: t('.content_empty')
-    elsif !theme[:content].content_type.in?(%q{image/jpeg image/png image/gif})
+    elsif !theme[:content].content_type.in?('image/jpeg image/png image/gif')
       redirect_to @theme_board, error: t('.invalid_image_type')
     end
   end
 
   def what_environment(file)
     if Rails.env.production?
-      URI.open(file.content_url)
+      URI.parse(file.content_url)
     else
-      URI.open(file.content.path)
+      File.open(file.content.path)
     end
   end
 end

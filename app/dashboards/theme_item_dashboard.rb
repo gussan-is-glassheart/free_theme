@@ -13,7 +13,7 @@ class ThemeItemDashboard < Administrate::BaseDashboard
     photo_themes: Field::HasMany,
     subject: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

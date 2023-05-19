@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "ThemeBoards", type: :system do
   let(:user) { create(:user) }
-  let(:theme_board) { create(:theme_board, user: user)
-  }
+  let(:theme_board) { create(:theme_board, user: user) }
 
   before do
     login_as(user)
@@ -73,7 +72,7 @@ RSpec.describe "ThemeBoards", type: :system do
   describe 'ページネーション' do
     context 'テーマボードを11以上作成する' do
       it 'ページネーションが表示される' do
-        theme_boards = create_list(:theme_board, 10, user: user, themeable: theme_board.themeable)
+        create_list(:theme_board, 10, user: user, themeable: theme_board.themeable)
         click_link I18n.t('theme_boards.index.title')
         expect(page).to have_selector '.pagination'
         expect(page).to have_selector '.next', text: 'Next'

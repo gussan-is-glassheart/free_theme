@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :theme_item do
-
     trait :a do
       subject { "Bird" }
     end
@@ -8,6 +7,5 @@ FactoryBot.define do
     trait :b do
       subject { "Rock dove" }
     end
-
   end
 end

@@ -37,14 +37,14 @@ module FreeTheme
 
     # rails gコマンドで生成するファイルの制御
     config.generators do |g|
-      g.helper false #ヘルパーファイルを生成しない
+      g.helper false # ヘルパーファイルを生成しない
       g.test_framework :rspec,
-        fixtures: false,
-        routing_specs: false,
-        view_specs: false,
-        helper_specs: false,
-        controller_specs: true,
-        request_specs: false
+                       fixtures: false,
+                       routing_specs: false,
+                       view_specs: false,
+                       helper_specs: false,
+                       controller_specs: true,
+                       request_specs: false
     end
 
     # デフォルトのタイムゾーンを日本に設定
@@ -52,6 +52,6 @@ module FreeTheme
 
     # デフォルトのlocaleを日本語に設定
     config.i18n.default_locale = :ja
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
   end
 end

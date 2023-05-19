@@ -6,10 +6,10 @@ module Vision
   class << self
     def get_image_data(image_file)
       # APIのURL作成
-      api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['GOOGLE_API_KEY']}"
+      api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV.fetch('GOOGLE_API_KEY')}"
 
       # 画像をbase64にエンコード
-      base64_image = Base64.encode64(open("#{image_file}").read)
+      base64_image = Base64.encode64(File.read(image_file))
 
       # APIリクエスト用のJSONパラメータ
       params = {
