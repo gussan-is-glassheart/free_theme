@@ -15,7 +15,7 @@ class PhotoThemeDashboard < Administrate::BaseDashboard
     theme_boards: Field::HasMany,
     theme_items: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

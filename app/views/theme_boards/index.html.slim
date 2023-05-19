@@ -9,10 +9,15 @@ h1.page-title.text-deep-sky
       = link_to '受注中', theme_boards_path, class: 'block py-2'
     li.w-2/5.bg-gray-300.rounded-md.ml-6
       = link_to '達成済', completed_theme_boards_path, class: 'block py-2'
-  div
+  ul.flex.flex-wrap
+    - @categories.each do |category|
+      li.w-1/4.mb-6.sm:w-1/6
+        = button_to category.name, theme_boards_path, {method: :get, class: 'default-btn block default-btn-color py-5 mx-auto font-bold text-deep-sky', params: {category_id: category.id} }
+  .mb-8
     ul
       - if @theme_boards.present?
         = render @theme_boards
       - else
         p.text-center
           = t('.no_result_unachieved')
+  = paginate @theme_boards

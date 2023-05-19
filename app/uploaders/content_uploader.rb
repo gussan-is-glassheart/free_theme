@@ -1,7 +1,7 @@
 class ContentUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # 本番環境ではS3にアップロード、それ以外はローカル
   if Rails.env.production?
@@ -25,7 +25,7 @@ class ContentUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process scale: [200, 300]
+  process resize_to_limit: [1920, 1920]
   #
   # def scale(width, height)
   #   # do something
@@ -39,7 +39,7 @@ class ContentUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:

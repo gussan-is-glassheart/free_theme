@@ -12,5 +12,5 @@ h1.page-title.text-deep-sky
       | テーマを選択して作成
     ul.flex.flex-wrap
       - @categories.each do |category|
-          li.w-1/4.mb-6
-            = button_to category.name, theme_boards_path, { method: :post, class: 'default-btn block default-btn-color py-5 mx-auto font-bold text-deep-sky', params: {category_id: category.id} }
+        li.w-1/4.mb-6
+          = button_to category.name, theme_boards_path, { method: :post, class: 'default-btn block default-btn-color py-5 mx-auto font-bold text-deep-sky', params: {category_id: category.id} }

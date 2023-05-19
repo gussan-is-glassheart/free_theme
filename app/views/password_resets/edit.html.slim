@@ -5,18 +5,18 @@ h1.page-title.text-deep-sky
 .max-w-lg.mx-auto
   = form_with model: @user, url: password_reset_path(@token), local: true do |f|
     = render 'shared/error_messages', object: f.object
-      .mb-6
-        label.label
-          = User.human_attribute_name('email')
-        = @user.email
-      .mb-6
-        label.label
-          = User.human_attribute_name('password')
-        = f.password_field :password, class: 'input_field  bg-gray-200'
-      .mb-6
-        label.label
-          = User.human_attribute_name('password_confirmation')
-        = f.password_field :password_confirmation, class: 'input_field  bg-gray-200'
-      .mb-6
-        button.default-btn.default-btn-color
-          = t('defaults.register')
+    .mb-6
+      label.label
+        = User.human_attribute_name('email')
+      = @user.email
+    .mb-6
+      label.label
+        = User.human_attribute_name('password')
+      = f.password_field :password, class: 'input_field  bg-gray-200'
+    .mb-6
+      label.label
+        = User.human_attribute_name('password_confirmation')
+      = f.password_field :password_confirmation, class: 'input_field  bg-gray-200'
+    .mb-6.text-center
+      button.default-btn.default-btn-color
+        = t('defaults.register')

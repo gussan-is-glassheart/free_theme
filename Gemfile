@@ -64,9 +64,10 @@ gem 'sorcery'
 
 # AWS S3による画像アップローダー用
 gem 'carrierwave'
-
-# S3実装時にコメントを解除
 gem 'fog-aws'
+
+# 画像リサイズ
+gem 'mini_magick'
 
 # Google Vision API
 gem 'google-cloud-vision'
@@ -79,6 +80,9 @@ gem 'config'
 
 # 管理画面
 gem 'administrate'
+
+# ページネーション
+gem 'kaminari'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

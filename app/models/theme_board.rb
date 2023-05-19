@@ -5,11 +5,11 @@ class ThemeBoard < ApplicationRecord
 
   scope :unachieved_boards, -> { where(complete: false) }
 
-  def self.set_photo_theme(id, user_id)
+  def self.set_photo_theme(id, passed_user_id)
     # id(カテゴリ)があれば該当カテゴリでランダムに取得して代入
     # idがなければ全体でランダムに取得して代入
     theme = id.present? ? PhotoTheme.where(category_id: id).sample : PhotoTheme.all.sample
-    theme.theme_boards.create!(user_id: user_id)
+    theme.theme_boards.create!(user_id: passed_user_id)
   end
 
   def image_judgement(image)
@@ -20,16 +20,16 @@ class ThemeBoard < ApplicationRecord
     # labelsの中にitemsの要素がすべて含まれているか？
     if items.to_set.subset?(labels.to_set)
       # 判定が通れば画像を保存し、ステータスを更新
-      PhotoAchievement.create(theme_board_id: self.id, content: image)
-      self.update(complete: true)
+      PhotoAchievement.create(theme_board_id: id, content: image)
+      update(complete: true)
     else
       false
     end
   end
 
   # お試しテーマボードの作成
-  def self.trial_theme_board_create(user, content)
+  def self.trial_theme_board_create(user, trial_content)
     trial_board = PhotoTheme.find(5).theme_boards.create(user_id: user.id, complete: true)
-    PhotoAchievement.create(theme_board_id: trial_board.id, content: content)
+    PhotoAchievement.create(theme_board_id: trial_board.id, content: trial_content)
   end
 end

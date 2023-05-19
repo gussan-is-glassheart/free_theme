@@ -33,6 +33,27 @@
   .g-nav-text {
     @apply text-xs md:text-base;
   }
+  .pagination {
+    @apply font-normal text-center text-deep-sky
+  }
+  .page {
+    @apply border-x px-3 py-1 first-of-type:border-l-2 last-of-type:border-r-2
+  }
+  .next {
+    @apply border-x px-3 py-1
+  }
+  .last {
+    @apply border-l border-r-2 px-3 py-1
+  }
+  .first {
+    @apply border-r border-l-2 px-3 py-1
+  }
+  .prev {
+    @apply border-x px-3 py-1
+  }
+  .current{
+    @apply bg-deep-sky text-white
+  }
 
 }
 

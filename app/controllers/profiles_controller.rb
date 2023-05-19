@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
-before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[edit update]
+
+  def show; end
 
   def edit; end
 
@@ -11,8 +13,6 @@ before_action :set_user, only: %i[edit update]
       render :edit, status: :unprocessable_entity
     end
   end
-
-  def show; end
 
   def destroy
     current_user.destroy!
@@ -28,5 +28,4 @@ before_action :set_user, only: %i[edit update]
   def user_params
     params.require(:user).permit(:name)
   end
-
 end

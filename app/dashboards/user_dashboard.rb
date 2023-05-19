@@ -21,7 +21,7 @@ class UserDashboard < Administrate::BaseDashboard
     temporary: Field::Boolean,
     theme_boards: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

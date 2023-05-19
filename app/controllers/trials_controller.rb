@@ -26,20 +26,14 @@ class TrialsController < ApplicationController
   def valid_params?(theme)
     if theme.nil?
       redirect_to trial_path, error: t('theme_boards.update.content_empty')
-    elsif !theme[:content].content_type.in?(%q{image/jpeg image/png image/gif})
+    elsif !theme[:content].content_type.in?('image/jpeg image/png image/gif')
       redirect_to trial_path, error: t('theme_boards.update.invalid_image_type')
-    elsif theme[:content].size > 4.megabytes
-      redirect_to trial_path, error: t('theme_boards.update.invalid_image_size')
     end
   end
 
   def trial_image_judgement(image)
     items = PhotoTheme.find(5).theme_items.pluck(:subject)
     labels = Vision.get_image_data(image.path)
-    if items.to_set.subset?(labels.to_set)
-      true
-    else
-      false
-    end
+    items.to_set.subset?(labels.to_set)
   end
 end

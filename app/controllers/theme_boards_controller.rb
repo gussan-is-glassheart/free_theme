@@ -1,19 +1,22 @@
 class ThemeBoardsController < ApplicationController
+  before_action :set_category, only: %i[index new completed]
   before_action :set_theme_board, only: %i[show update destroy]
   before_action :unauthorised_user, only: %i[show update destroy]
 
   def index
-    @theme_boards = current_user.theme_boards.includes(:user).where(complete: false).order(created_at: :desc)
-  end
-
-  def new
-    theme_board = ThemeBoard.new
-    @categories = Category.all
+    @theme_boards = if (category_id = params[:category_id])
+                      theme_ids = with_category(category_id)
+                      current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: false).order(created_at: :desc).page(params[:page])
+                    else
+                      current_user.theme_boards.includes(:user).where(complete: false).order(created_at: :desc).page(params[:page])
+                    end
   end
 
   def show
     @theme = @theme_board.themeable
   end
+
+  def new; end
 
   def create
     theme_board = ThemeBoard.set_photo_theme(params[:category_id], current_user.id)
@@ -35,7 +38,12 @@ class ThemeBoardsController < ApplicationController
   end
 
   def completed
-    @theme_boards = current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc)
+    @theme_boards = if (category_id = params[:category_id])
+                      theme_ids = with_category(category_id)
+                      current_user.theme_boards.includes(:user).where(themeable_id: theme_ids, complete: true).order(created_at: :desc).page(params[:page])
+                    else
+                      current_user.theme_boards.includes(:user).where(complete: true).order(created_at: :desc).page(params[:page])
+                    end
   end
 
   def download
@@ -46,12 +54,20 @@ class ThemeBoardsController < ApplicationController
 
   private
 
+  def with_category(category_id)
+    Category.find(category_id).photo_themes.includes(:category).pluck(:id)
+  end
+
   def theme_board_params
     params.require(:theme_board).permit(:content)
   end
 
   def set_theme_board
     @theme_board = ThemeBoard.find(params[:id])
+  end
+
+  def set_category
+    @categories = Category.all
   end
 
   def unauthorised_user
@@ -61,18 +77,16 @@ class ThemeBoardsController < ApplicationController
   def valid_params?(theme)
     if theme.nil?
       redirect_to @theme_board, error: t('.content_empty')
-    elsif !theme[:content].content_type.in?(%q{image/jpeg image/png image/gif})
+    elsif !theme[:content].content_type.in?('image/jpeg image/png image/gif')
       redirect_to @theme_board, error: t('.invalid_image_type')
-    elsif theme[:content].size > 4.megabytes
-      redirect_to @theme_board, error: t('.invalid_image_size')
     end
   end
 
   def what_environment(file)
     if Rails.env.production?
-      URI.open(file.content_url)
+      URI.parse(file.content_url)
     else
-      URI.open(file.content.path)
+      File.open(file.content.path)
     end
   end
 end

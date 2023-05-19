@@ -56,6 +56,7 @@
 #   {id: 40, subject: "Soup"},
 #   {id: 41, subject: "Salad"},
 #   {id: 42, subject: "Pizza"},
+#   {id: 43, subject: "Waterfall"},
 # ]
 
 # theme_items.each do |theme_item|
@@ -98,6 +99,7 @@
 #   {id: 32, category_id: 6, target: "ラーメン"},
 #   {id: 33, category_id: 6, target: "サラダ"},
 #   {id: 34, category_id: 6, target: "ピザ"},
+#   {id: 35, category_id: 4, target: "滝"},
 # ]
 
 # photo_themes.each do |photo_theme|
@@ -151,6 +153,7 @@
 #   {id: 43, photo_theme_id: 32, theme_item_id: 40},
 #   {id: 44, photo_theme_id: 33, theme_item_id: 41},
 #   {id: 45, photo_theme_id: 34, theme_item_id: 42},
+#   {id: 46, photo_theme_id: 35, theme_item_id: 43},
 # ]
 
 # photo_theme_items.each do |photo_theme_item|
