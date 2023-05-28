@@ -2,6 +2,9 @@
   = form_with model: theme_board do |f|
     .mb-6.max-w-xs.mx-auto
       = f.file_field :content, class: 'w-full'
+    .mb-6.max-w-xs.mx-auto.text-sm
+      = f.check_box :embedded, {}, true, false
+      = f.label "テーマタイトルを画像に埋め込む", class: 'pl-2'
     = f.button type: 'submit', class: 'group default-btn default-btn-color cursor-pointer' do
       span class="block group-disabled:hidden"
         = t('defaults.judgement')

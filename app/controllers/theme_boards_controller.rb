@@ -25,7 +25,7 @@ class ThemeBoardsController < ApplicationController
 
   def update
     valid_params?(params[:theme_board]) and return
-    if @theme_board.image_judgement(theme_board_params[:content])
+    if @theme_board.image_judgement(theme_board_params[:content], theme_board_params[:embedded])
       redirect_to @theme_board, success: t('.success')
     else
       redirect_to @theme_board, error: t('.fail_to_judge')
@@ -59,7 +59,7 @@ class ThemeBoardsController < ApplicationController
   end
 
   def theme_board_params
-    params.require(:theme_board).permit(:content)
+    params.require(:theme_board).permit(:content, :embedded)
   end
 
   def set_theme_board
