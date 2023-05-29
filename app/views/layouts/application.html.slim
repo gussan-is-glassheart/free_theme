@@ -3,19 +3,8 @@ html.text-default-black
   head
     title
       = page_title(yield(:title))
+    = display_meta_tags(default_meta_tags)
     meta [name="viewport" content="width=device-width,initial-scale=1"]
-    / twitterカード
-    meta name="twitter:card" content="summary_large_image"
-    meta name="twitter:site" content="@FreeTheme461551"
-    meta name="twitter:domain" content="www.free-theme.net"
-    meta name="twitter:title" content="Free Theme"
-    meta name="twitter:description" content="外出先や旅先での空いた時間を有意義な時間に変える、出題型のお題達成アプリです"
-    - if controller_path == 'theme_boards' && action_name == 'show'
-      - unless @theme_board.complete == false
-        meta name="twitter:image" content="#{@theme_board.photo_achievement.content.url}"
-    - else
-      meta name="twitter:image" content="#{asset_url("/assets/images/main_visual.png")}"
-
     = csrf_meta_tags
     = csp_meta_tag
 

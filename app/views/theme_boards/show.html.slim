@@ -1,4 +1,7 @@
+- unless @theme_board.complete == false
+  - set_meta_tags og: { image: @theme_board.photo_achievement.content.url }, twitter: { image: @theme_board.photo_achievement.content.url }
 - content_for(:title, @theme.target)
+
 h1.page-title.text-deep-sky
   - if @theme_board.complete == true
     span.text-white.bg-deep-sky.rounded-full.text-sm.block.w-1/4.py-1.mx-auto.mb-3.tracking-wider
