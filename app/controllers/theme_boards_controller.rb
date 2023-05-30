@@ -1,7 +1,9 @@
 class ThemeBoardsController < ApplicationController
+  skip_before_action :require_login, only: %i[show]
   before_action :set_category, only: %i[index new completed]
   before_action :set_theme_board, only: %i[show update destroy]
-  before_action :unauthorised_user, only: %i[show update destroy]
+  before_action :unauthorised_user, only: %i[update destroy]
+  before_action :acceptable_if_complete, only: %i[show]
 
   def index
     @theme_boards = if (category_id = params[:category_id])
@@ -87,6 +89,16 @@ class ThemeBoardsController < ApplicationController
       URI.parse(file.content_url)
     else
       File.open(file.content.path)
+    end
+  end
+
+  def acceptable_if_complete
+    if @theme_board.complete == false
+      if logged_in? == false
+        redirect_to theme_boards_path, error: t('defaults.invalid_access')
+      else
+        unauthorised_user
+      end
     end
   end
 end

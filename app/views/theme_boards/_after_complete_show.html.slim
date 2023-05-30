@@ -1,7 +1,23 @@
 .mb-8
   = image_tag "#{theme_board.photo_achievement.content}", width: "300", class: "block mx-auto mb-6"
-  = link_to 'ダウンロード', download_theme_board_path(theme_board), class: 'default-btn default-btn-color'
+  - if logged_in? == true
+    - if current_user.id == @theme_board.user_id
+      = link_to 'ダウンロード', download_theme_board_path(theme_board), class: 'default-btn default-btn-color inline-block mb-6'
+      p
+        = link_to("https://twitter.com/share?url=#{request.url}&text=%0a%0a「テーマ：#{@theme.target}を撮影しよう」を達成!!", title: 'Twitter', target: '_blank', class: 'border border-twitter p-2 m-auto text-twitter rounded-full hover:bg-twitter hover:text-white') do
+          i.fa-brands.fa-twitter.pl-2
+          span.px-2
+            | Twitterに共有
+        ul.mt-8
+          li
+            = link_to t('defaults.theme_delete'), theme_board_path, data: { turbo_method: :delete }
 
-ul
-  li
-    = link_to t('defaults.theme_delete'), theme_board_path, data: { turbo_method: :delete }
+    - else
+      p.text-center.mb-4
+        | #{current_user.name}さんもテーマを達成して、画像をシェアしよう！
+      = link_to "#{t('theme_boards.new.title')}はこちら", new_theme_board_path
+  - else
+    p.text-center.mb-2
+      | 会員登録をしてテーマにチャレンジしよう！
+    p.text-center
+      = link_to "#{t('users.new.title')}はこちら", signup_path
