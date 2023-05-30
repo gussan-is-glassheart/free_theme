@@ -45,7 +45,7 @@ class ThemeBoard < ApplicationRecord
   # タイトルの埋め込み処理
   def embedding(image)
     require 'mini_magick'
-    base_image = MiniMagick::Image.open("#{image.path}")
+    base_image = MiniMagick::Image.open(image.path.to_s)
     base_image.combine_options do |config|
       config.font './app/assets/fonts/MPLUS1-SemiBold.ttf'.freeze
       config.fill '#333333'

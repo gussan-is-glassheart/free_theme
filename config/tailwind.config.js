@@ -16,7 +16,8 @@ module.exports = {
       colors: {
         'deep-sky': '#187fc4',
         'default-black': '#333',
-        'active-yellow': '#fff9b1'
+        'active-yellow': '#fff9b1',
+        'twitter': '#1da1f2'
       },
     },
   },
