@@ -3,9 +3,13 @@
   h1.text-5xl.font-semibold.text-deep-sky.inline-block.border-b-2.border-deep-sky.px-4.md:text-8xl
     | Free Theme
 
-p.mx-auto.max-w-lg.mb-12.leading-8.-indent-2
-  | 「Free Theme」は旅行やおでかけの余った時間に 自分(達)の代わりにお題(テーマ)をくれるアプリです。<br>
-    旅行中やお出かけをしている中で、次の予定までに空いてしまった空白の時間にちょっとした目的を作ります。ぜひ、あなたのお出かけに合ったお題を見つけてみてください。
+p.mx-auto.max-w-lg.mb-12.leading-8
+  | 旅行中やお出かけをしている中で、次の予定や帰宅時間までに時間が余ってしまうことはありませんか？<br>
+    そんなとき、近くの観光地を検索しても、興味がそそる目的地がなかなか見つからなかったり、調べていくうちに面倒になってしまい、気がつけば普段家でもできるスマホゲームやSNSで時間を潰している、なんて経験はないでしょうか？<br>
+    「Free Theme」はそんな旅行やおでかけの余った時間に 自分(達)の代わりにお題(テーマ)を出題してくれます。<br>
+    テーマを選んで、そのテーマを達成できる目的地を選んでみたり、近くを散策してみるなど、お出かけしているときならではの時間の使い方するための、お手伝いをするサービスです。<br>
+    時間が余ったけど、外出先ならではの楽しみ方がしたい！と思ったときに、ぜひ遊んでみてください！
+
 .flex.justify-center
   - if logged_in?
     = link_to t('theme_boards.new.title'), new_theme_board_path, class: 'default-btn default-btn-color'
