@@ -3,11 +3,11 @@ h1.page-title.text-deep-sky
   span.page-title-line.border-deep-sky
     = t('.title')
 
-.font-bold
+.font-bold.mb-8
   ul.flex.text-center.justify-center.text-white.mb-8
-    li.w-2/5.bg-gray-300.rounded-md
+    li.w-full.bg-gray-300.rounded-md
       = link_to '受注中', theme_boards_path, class: 'block py-2'
-    li.w-2/5.bg-amber-300.rounded-md.ml-6
+    li.w-full.bg-amber-300.rounded-md.ml-6
       = link_to '達成済', completed_theme_boards_path, class: 'block py-2'
   = turbo_frame_tag "theme_board_list" do
     ul.flex.flex-wrap
@@ -22,3 +22,4 @@ h1.page-title.text-deep-sky
         p.text-center.mt-8
           = t('.no_result_achievement')
     = paginate @theme_boards
+= link_to 'テーマを作成する', new_theme_board_path, class: 'block text-center m-auto mb-6 bg-deep-sky py-5 rounded-md text-white'
